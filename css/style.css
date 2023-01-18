@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+section {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(95, 95, 134);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+.accordion__item {
+    background-color: gray;
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: .5rem 2px .5rem rgba(0,0,0,1.1);
+}
+.accordion__link {
+    font-size: 1.6rem;
+    color: aliceblue;
+    text-decoration: none;
+    background-color: green;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+.accordion__link ion-icon {
+    color: yellow;
+    padding: .5rem;
+}
+.accordion__link .remove-icon {
+    display: none;
+}
+.accordion__answer {
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: darkslategrey;
+    transition: max-height 650ms;
+}
+.accordion__answer::before {
+    content: "";
+    position: absolute;
+    width: .6rem;
+    height: 90%;
+    background-color: blue;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+.accordion__answer p {
+    color: aliceblue;
+    font-size: 1.4rem;
+    padding: 2rem;
+}
+.accordion__item:target .accordion__answer {
+    max-height: 20rem;
+}
+.accordion__item:target .accordion__link .add-icon {
+    display: none;
+}
+.accordion__item:target .accordion__link .remove-icon {
+    display: block;
+}
